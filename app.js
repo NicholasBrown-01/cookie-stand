@@ -26,7 +26,8 @@ let seattle = {
   minCust: 23,
   maxCust: 65,
   avgCookiesBought: 6.3,
-  cookiesBought: [],
+  cookiesBoughtPerHour: [],
+  cookiesTotalSold: [],
   render: function () { // Step 1 Rendering: Declare Function
     let articleElem = document.createElement('article'); // Step 2 Rendering: Create an Element
     seattleSection.appendChild(articleElem); // Step 3 Rendering: Add it to the DOM
@@ -40,9 +41,13 @@ let seattle = {
 
     for (let i = 0; i < hours.length; i++) { //Display the values of each array as unordered lists in the browser.
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
+      liElem.textContent = `${hours[i]}: ${this.cookiesBoughtPerHour[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.cookiesTotalSold}`;
+    ulElem.appendChild(liElem);
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -51,17 +56,18 @@ let seattle = {
   },
   // TODO: Make method to calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated.
   generateCookieSales: function () {
+    this.cookiesBoughtPerHour = []; // Reset the cookiesBoughtPerHour array
+    this.cookiesTotalSold = 0; // Reset the cookiesTotalSold
+
     for (let i = 0; i < hours.length; i++) {
       let randomCustomerAmount = this.generateCustomers();
-      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
-      this.cookiesBought.push(cookiesSold);
+      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought);
+      this.cookiesBoughtPerHour.push(cookiesSold);
+      this.cookiesTotalSold += cookiesSold; // Calculate total number of cookies sold
     }
     locations.push(seattle);
-    // console.log(this.cookiesBought);
   }
-};
-
-// console.log(seattle);
+}
 
 
 
@@ -74,7 +80,8 @@ let tokyo = {
   minCust: 3,
   maxCust: 24,
   avgCookiesBought: 1.2,
-  cookiesBought: [],
+  cookiesBoughtPerHour: [],
+  cookiesTotalSold: [],
   render: function () { // Step 1 Rendering: Declare Function
     let articleElem = document.createElement('article'); // Step 2 Rendering: Create an Element
     tokyoSection.appendChild(articleElem); // Step 3 Rendering: Add it to the DOM
@@ -88,9 +95,12 @@ let tokyo = {
 
     for (let i = 0; i < hours.length; i++) { //Display the values of each array as unordered lists in the browser.
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
+      liElem.textContent = `${hours[i]}: ${this.cookiesBoughtPerHour[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.cookiesTotalSold}`;
+    ulElem.appendChild(liElem);
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -99,13 +109,17 @@ let tokyo = {
   },
   // TODO: Make method to calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated.
   generateCookieSales: function () {
+    this.cookiesBoughtPerHour = []; // Reset the cookiesBoughtPerHour array
+    this.cookiesTotalSold = 0; // Reset the cookiesTotalSold
+
     for (let i = 0; i < hours.length; i++) {
       let randomCustomerAmount = this.generateCustomers();
-      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
-      this.cookiesBought.push(cookiesSold);
+      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought);
+      this.cookiesBoughtPerHour.push(cookiesSold);
+      this.cookiesTotalSold += cookiesSold; // Calculate total number of cookies sold
     }
     locations.push(tokyo);
-    // console.log(this.cookiesBought);
+    // console.log(this.cookiesBoughtPerHour);
   }
 };
 
@@ -121,7 +135,8 @@ let dubai = {
   minCust: 11,
   maxCust: 38,
   avgCookiesBought: 3.7,
-  cookiesBought: [],
+  cookiesBoughtPerHour: [],
+  cookiesTotalSold: [],
   render: function () { // Step 1 Rendering: Declare Function
     let articleElem = document.createElement('article'); // Step 2 Rendering: Create an Element
     dubaiSection.appendChild(articleElem); // Step 3 Rendering: Add it to the DOM
@@ -135,9 +150,12 @@ let dubai = {
 
     for (let i = 0; i < hours.length; i++) { //Display the values of each array as unordered lists in the browser.
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
+      liElem.textContent = `${hours[i]}: ${this.cookiesBoughtPerHour[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.cookiesTotalSold}`;
+    ulElem.appendChild(liElem);
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -146,13 +164,17 @@ let dubai = {
   },
   // TODO: Make method to calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated.
   generateCookieSales: function () {
+    this.cookiesBoughtPerHour = []; // Reset the cookiesBoughtPerHour array
+    this.cookiesTotalSold = 0; // Reset the cookiesTotalSold
+
     for (let i = 0; i < hours.length; i++) {
       let randomCustomerAmount = this.generateCustomers();
-      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
-      this.cookiesBought.push(cookiesSold);
+      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought);
+      this.cookiesBoughtPerHour.push(cookiesSold);
+      this.cookiesTotalSold += cookiesSold; // Calculate total number of cookies sold
     }
     locations.push(dubai);
-    // console.log(this.cookiesBought);
+    // console.log(this.cookiesBoughtPerHour);
   }
 };
 
@@ -169,7 +191,8 @@ let paris = {
   minCust: 20,
   maxCust: 38,
   avgCookiesBought: 2.3,
-  cookiesBought: [],
+  cookiesBoughtPerHour: [],
+  cookiesTotalSold: [],
   render: function () { // Step 1 Rendering: Declare Function
     let articleElem = document.createElement('article'); // Step 2 Rendering: Create an Element
     parisSection.appendChild(articleElem); // Step 3 Rendering: Add it to the DOM
@@ -183,9 +206,12 @@ let paris = {
 
     for (let i = 0; i < hours.length; i++) { //Display the values of each array as unordered lists in the browser.
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
+      liElem.textContent = `${hours[i]}: ${this.cookiesBoughtPerHour[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.cookiesTotalSold}`;
+    ulElem.appendChild(liElem);
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -194,13 +220,17 @@ let paris = {
   },
   // TODO: Make method to calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated.
   generateCookieSales: function () {
+    this.cookiesBoughtPerHour = []; // Reset the cookiesBoughtPerHour array
+    this.cookiesTotalSold = 0; // Reset the cookiesTotalSold
+
     for (let i = 0; i < hours.length; i++) {
       let randomCustomerAmount = this.generateCustomers();
-      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
-      this.cookiesBought.push(cookiesSold);
+      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought);
+      this.cookiesBoughtPerHour.push(cookiesSold);
+      this.cookiesTotalSold += cookiesSold; // Calculate total number of cookies sold
     }
     locations.push(paris);
-    // console.log(this.cookiesBought);
+    // console.log(this.cookiesBoughtPerHour);
   }
 };
 
@@ -217,7 +247,8 @@ let lima = {
   minCust: 2,
   maxCust: 16,
   avgCookiesBought: 4.6,
-  cookiesBought: [],
+  cookiesBoughtPerHour: [],
+  cookiesTotalSold: [],
   render: function () { // Step 1 Rendering: Declare Function
     let articleElem = document.createElement('article'); // Step 2 Rendering: Create an Element
     limaSection.appendChild(articleElem); // Step 3 Rendering: Add it to the DOM
@@ -231,9 +262,12 @@ let lima = {
 
     for (let i = 0; i < hours.length; i++) { //Display the values of each array as unordered lists in the browser.
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
+      liElem.textContent = `${hours[i]}: ${this.cookiesBoughtPerHour[i]} cookies`;
       ulElem.appendChild(liElem);
     }
+    let liElem = document.createElement('li');
+    liElem.textContent = `Total: ${this.cookiesTotalSold}`;
+    ulElem.appendChild(liElem);
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -242,13 +276,17 @@ let lima = {
   },
   // TODO: Make method to calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated.
   generateCookieSales: function () {
+    this.cookiesBoughtPerHour = []; // Reset the cookiesBoughtPerHour array
+    this.cookiesTotalSold = 0; // Reset the cookiesTotalSold
+
     for (let i = 0; i < hours.length; i++) {
       let randomCustomerAmount = this.generateCustomers();
-      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
-      this.cookiesBought.push(cookiesSold);
+      let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought);
+      this.cookiesBoughtPerHour.push(cookiesSold);
+      this.cookiesTotalSold += cookiesSold; // Calculate total number of cookies sold
     }
     locations.push(lima);
-    // console.log(this.cookiesBought);
+    // console.log(this.cookiesBoughtPerHour);
   }
 };
 
