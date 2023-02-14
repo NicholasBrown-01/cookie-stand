@@ -12,6 +12,10 @@ let locations = [];
 console.log(locations);
 
 
+
+
+
+
 // **** OBJECT LITERALS FOR EACH CITY ****
 
 
@@ -27,7 +31,7 @@ let seattle = {
   maxCust: 65,
   avgCookiesBought: 6.3,
   cookiesBoughtPerHour: [],
-  cookiesTotalSold: [],
+  cookiesTotalSold: [0],
   render: function () { // Step 1 Rendering: Declare Function
     let articleElem = document.createElement('article'); // Step 2 Rendering: Create an Element
     seattleSection.appendChild(articleElem); // Step 3 Rendering: Add it to the DOM
@@ -67,8 +71,7 @@ let seattle = {
     }
     locations.push(seattle);
   }
-}
-
+};
 
 
 // ! -----------------Tokyo------------------------------------
