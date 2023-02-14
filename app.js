@@ -41,7 +41,6 @@ let seattle = {
       liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
       ulElem.appendChild(liElem);
     }
-
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -58,7 +57,6 @@ let seattle = {
     locations.push(seattle);
     // console.log(this.cookiesBought);
   }
-  
 };
 
 // console.log(seattle);
@@ -97,7 +95,6 @@ let tokyo = {
       liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
       ulElem.appendChild(liElem);
     }
-
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -111,6 +108,7 @@ let tokyo = {
       let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
       this.cookiesBought.push(cookiesSold);
     }
+    locations.push(tokyo);
     // console.log(this.cookiesBought);
   }
 };
@@ -149,7 +147,6 @@ let dubai = {
       liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
       ulElem.appendChild(liElem);
     }
-
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -163,6 +160,7 @@ let dubai = {
       let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
       this.cookiesBought.push(cookiesSold);
     }
+    locations.push(dubai);
     // console.log(this.cookiesBought);
   }
 };
@@ -201,7 +199,6 @@ let paris = {
       liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
       ulElem.appendChild(liElem);
     }
-
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -215,6 +212,7 @@ let paris = {
       let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
       this.cookiesBought.push(cookiesSold);
     }
+    locations.push(paris);
     // console.log(this.cookiesBought);
   }
 };
@@ -253,7 +251,6 @@ let lima = {
       liElem.textContent = `${hours[i]}: ${this.cookiesBought[i]} cookies`;
       ulElem.appendChild(liElem);
     }
-
   },
 
   // TODO: Make method to generate a random number of customers per hour.
@@ -267,6 +264,7 @@ let lima = {
       let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought); // Code from MDN
       this.cookiesBought.push(cookiesSold);
     }
+    locations.push(lima);
     // console.log(this.cookiesBought);
   }
 };
