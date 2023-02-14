@@ -1,31 +1,56 @@
 
 
 
+* {
+  text-align: center;
+}
+
 
 header {
+  background-image: url(headerbackground.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-style: double;
+  border-color: black;
+  border-width: 5px;
+  margin: 2px;
+  padding: 3px;
 
 }
 
 
 nav{
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.0rem;
+  background-color: rgb(223, 223, 223);
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  margin: 10px;
+  padding: 3px;
+  display: inline-flex;
+  
+
 
 }
 
 
 h1 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 2.5rem;
 }
 
 
 h2 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 1rem;
+  margin: 5px;
+  padding: 5px;
 }
 
 
@@ -38,6 +63,20 @@ body{
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
   font-size: 1.0rem;
+  background-image: url(baking.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+ul {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 1rem;
+  margin: 10px;
+  padding: 5px;
+  
+}
+
 }
 
 
