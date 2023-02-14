@@ -4,9 +4,11 @@
 
 // **** GLOBALS ****
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+
+// TODO: Store the results for each location in a separate array… perhaps as a property of the object representing that location.
+
 // let locations = ['seattle', 'tokyo', 'dubai', 'paris', 'lima'];
 let locations = [];
-
 console.log(locations);
 
 
@@ -62,12 +64,6 @@ let seattle = {
 // console.log(seattle);
 
 
-// TODO: Store the results for each location in a separate array… perhaps as a property of the object representing that location.
-
-
-
-
-
 
 // ! -----------------Tokyo------------------------------------
 
@@ -116,11 +112,6 @@ let tokyo = {
 // console.log(tokyo);
 
 
-// TODO: Store the results for each location in a separate array… perhaps as a property of the object representing that location.
-
-
-
-
 // ! -------------------Dubai------------------------------------
 
 let dubaiSection = document.getElementById('tokyo-section');
@@ -166,10 +157,6 @@ let dubai = {
 };
 
 // console.log(dubai);
-
-
-// TODO: Store the results for each location in a separate array… perhaps as a property of the object representing that location.
-
 
 
 
@@ -220,10 +207,6 @@ let paris = {
 // console.log(paris);
 
 
-// TODO: Store the results for each location in a separate array… perhaps as a property of the object representing that location.
-
-
-
 
 // ! -----------------Lima------------------------------------
 
@@ -270,11 +253,6 @@ let lima = {
 };
 
 // console.log(lima);
-
-
-// TODO: Store the results for each location in a separate array… perhaps as a property of the object representing that location.
-
-
 
 
 
