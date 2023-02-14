@@ -47,7 +47,7 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1.2rem;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 1rem;
   margin: 5px;
   padding: 5px;
@@ -61,7 +61,7 @@ main {
 
 body{
   font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 1.0rem;
   background-image: url(baking.jpg);
   background-size: cover;
@@ -70,7 +70,7 @@ body{
 
 ul {
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 1rem;
   margin: 10px;
   padding: 5px;
