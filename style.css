@@ -110,13 +110,23 @@ td {
   padding: 10px;
   
 }
-
-  th {
+/* 
+th {
   border-style: none;
   border-color: none;
   border-width: none;
   margin: 5px;
   padding: 15px;
  
+} */
+
+tr {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  margin: 5px;
+  padding: 10px;
+ 
 }
+
 
