@@ -1,39 +1,58 @@
 'use strict';
+// * ----- THANK YOU INSTRUCTORS, TA'S, AND YOUTUBE, AND MDN DOCS, AND W3 SCHOOLS, AND THE INTERNET FOR YOUR CONTRIBUTIONS ----- *
+
+// Visualize the HTML Table:
+
+// <table>
+//   <tr>
+//     <th>Heading 1</th> // ? Hours
+//     <th>Heading 2</th>
+//     <th>Heading 3</th>
+//     <th>Daily Location Total</th> // ? Total of each City for all hours
+//   </tr>
+//   <tr>?
+//     <td>Cell 1, Row 1</td> // ? Cities
+//     <td>Cell 2, Row 1</td>
+//     <td>Cell 3, Row 1</td>
+//   </tr>
+//   <tr>
+//     <th>Total</th> // ? Total of all Cities per hour
+//     <td></td>
+//     <td></td>
+//   </tr>
+// </table>
 
 // **** GLOBALS ****
 
-
-// * Below this line: don't think I need this anymore. *
-// let seattleSection = document.getElementById('seattle-section');
-// let locations = [];
-// console.log(locations);
-// * Above this line: don't think I need this anymore. *
-
+// 1. Create a <table id='sale-table'></table> in the HTML Section/Article/Body etc for the JS created table to be linked to so it knows where to go. `sale-table`.
 let saleTable = document.getElementById('sale-table');
 
+// 2. Create the body of the actual table, `tableBody` that will be filled with data, and append/attach it to the saleTable location in the HTML.
 let tableBody = document.createElement('tbody');
 saleTable.appendChild(tableBody);
 
+//3. Use this variable array `hours` for the table and table functions we create to use for cookie calculations.
 let hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
 
 // **** CONSTRUCTOR FUNCTION (bridges the gap between our Objects and Prototypes)
 
+// 4. Replace the City Objects we created in the prior lab and re-write their format/information into a Constructor to then be used by Prototypes. Include properties that are special (will need to be updated or changed) and properties that require a starting point for function calls (for loops) later on .
 function Cities(name, minCust, maxCust, avgCookiesBought) {
   this.name = name;
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookiesBought = avgCookiesBought;
   this.cookiesBoughtPerHour = [];
-  this.cookiesTotalSold = 0;
-  this.totalCookiesPerCity = 0;
+  this.totalCookiesSold = 0;
+  this.totalCookiesSoldPerCity = 0;
 }
 
 
 
 // ******** PROTOTYPE METHODS ********
 
-
+// 5. Copy/Paste our functions that were used for our Objects, and re-write them into a Prototype Method.
 // ? *** Generate Customers Prototype ***
 
 Cities.prototype.generateCustomers = function () {
@@ -47,44 +66,38 @@ Cities.prototype.generateCookieSales = function() {
     let randomCustomerAmount = this.generateCustomers();
     let cookiesSold = Math.floor(randomCustomerAmount * this.avgCookiesBought);
     this.cookiesBoughtPerHour.push(cookiesSold);
-    this.cookiesTotalSold += cookiesSold; // Calculate total number of cookies sold per hour
-    this.totalCookiesPerCity += cookiesSold; // Calculate total number of cookies sold per city
+    this.totalCookiesSold += cookiesSold; // Calculate total number of cookies sold
+    this.totalCookiesSoldPerCity += cookiesSold; // Calculate total number of cookies sold per city
   }
 };
 
-// ? *** Render Prototype ***
+// 6. Data that used to be rendered as a 'ul' with 'h2' and 'li' elements for cookie sales per hour, now need to be converted into a single dynamic table element. Thus, replace the old 'ul' etc elements with table elements. ('th', 'tr', 'td' etc.)
+// ? *** Render Prototypes ***
 
 Cities.prototype.render = function() {
-  this.generateCookieSales(); // Invoking this function here so it's called only once.
+  this.generateCookieSales(); // Invoking this function here so it's called only once per advice from a TA.
 
-  // let thead = document.createElement('thead');
-  // tableBody.appendChild(thead);
+  let trElem = document.createElement('tr'); // Create the initial row from which to build from an attach our header date to. Would love to name this Row 1 but becuase this is used over and over it wouldn't make sense.
 
-  let trElem = document.createElement('tr');
-
-  let thElem = document.createElement('th'); // Creates new thElem (header cell) and assignes it to the variable thElem
-  thElem.textContent = this.name; // Assigns the name of the city to thElem (header cell)
-  trElem.appendChild(thElem); // Appends the thElem (header cell) to the trElem (table row)
+  let thElem = document.createElement('th'); // Create a new Table Header which is also a 'Header Cell' and assignes it to the variable thElem
+  thElem.textContent = this.name; // Assigns the name of the a city to Table Header Cell.
+  trElem.appendChild(thElem); // Appends and/or Attaches the Header Cell ('th') to the Table Row ('trElem')
 
   for (let i = 0; i < hours.length; i++) {
-    let tdElem = document.createElement('td'); // Creates new tdElem (data cell) and assigns it to the variable tdElem, we can do this again because we are in a "for" loop
-    tdElem.textContent = this.cookiesBoughtPerHour[i]; // Assigns the number of cookies sold to tdElem (data cell) to be displayed in the table
-    trElem.appendChild (tdElem);
+    let tdElem = document.createElement('td'); // Creates new Data Cell and again assigns it to the 'tdElem' variable. We can do this same variable again because we are in a "for loop" in order to create Data Cells for each hour.
+    tdElem.textContent = this.cookiesBoughtPerHour[i]; // Assigns the Data Cell to number of 'cookiesBoughtPerHour[i]' variable
+    trElem.appendChild (tdElem); // Attaches that Data Cell ('td') to the Table Row ('trElem').
   }
 
-  let tdElem = document.createElement('td');
-  tdElem.textContent = this.cookiesTotalSold;
-  trElem.appendChild(tdElem);
-  tableBody.appendChild(trElem);
+  let tdElem = document.createElement('td'); // Creates a new Data Cell outside the "for loop" we just did above.
+  tdElem.textContent = this.totalCookiesSold; // Assigns the Data Cell to the 'totalCookiesSold' variable.
+  trElem.appendChild(tdElem); // Attaches that Data Cell ('td') to the Table Row ('trElem').
+  tableBody.appendChild(trElem); // Attaches that Table Row ('trElem') with all this data now...to the Table Body ('tableBody'). Which is then applied to Each City with it's own Table Row of date because of the "for loop" above.
 
-  // let thElem = document.createElement('th');
-  // thElem.textContent = 'Daily Location Total';
-  // trElem.appendChild(thElem);
-  // theadElem.appendChild(trElem);
-  // tableBody.appendChild(theadElem);
 };
 
-// ? *** Generate Table Header Prototype ***
+// 7. Create separate functions for the Header and the Footer to allow us to display separate totals for each city per hour.
+// ? *** Generate Table Header Function ***
 function renderHeader() {
   let theadElem = document.createElement('thead');
   let trElem = document.createElement('tr');
@@ -110,31 +123,32 @@ function renderHeader() {
 
 // ? *** Generate Table Footer Function ***
 function renderFooter() {
-  let trElem = document.createElement('tr');
-  let thTotalElem = document.createElement('th');
-  thTotalElem.textContent = 'Totals';
-  trElem.appendChild(thTotalElem);
+  let trElem = document.createElement('tr'); // Create a new row for the Data our function makes.
+  let thTotalElem = document.createElement('th'); // Create the Data Cell in the Table Header for the ROW.
+  thTotalElem.textContent = 'Totals'; // Assign what we want to literally call that Data Cell which represents the ROW.
+  trElem.appendChild(thTotalElem); // Append and/or attach that information to the Row.
 
-  let totalCookiesPerHour = 0;
-  for (let i = 0; i < hours.length; i++) {
-    let cookiesSold = 0;
-    for (let j = 0; j < cities.length; j++) {
-      cookiesSold += cities[j].cookiesBoughtPerHour[i];
+  let totalCookiesPerHour = 0; // Set the starting amount in which to calculate from.
+
+  for (let i = 0; i < hours.length; i++) { // Start the loop at 0 to then go through each hour.
+    let cookiesSold = 0; // Set the starting amount in which to calculate from.
+    for (let j = 0; j < cities.length; j++) { // Initalizes this nested loop for each hour city by city.
+      cookiesSold += cities[j].cookiesBoughtPerHour[i]; // Adds the number of cookies sold in the current hour for each city
     }
-    let tdElem = document.createElement('td');
-    tdElem.textContent = cookiesSold;
-    trElem.appendChild(tdElem);
-    totalCookiesPerHour += cookiesSold;
+    let tdElem = document.createElement('td'); // Creates a new Data Cell and again assigns it to the 'tdElem' variable.
+    tdElem.textContent = cookiesSold; // Assigns the Data Cell to number of 'cookiesSold' variable.
+    trElem.appendChild(tdElem); // Attaches that Data Cell ('td') to the Table Row ('trElem').
+    totalCookiesPerHour += cookiesSold; // Adds the total number of cookies sold in each hour ('cookiesSold') over all cities and adds it to the overall number of cookies sold per hour ('totalCookiesPerHour').
   }
 
-  let tdTotalElem = document.createElement('td');
-  tdTotalElem.textContent = totalCookiesPerHour;
-  trElem.appendChild(tdTotalElem);
+  let tdTotalElem = document.createElement('td'); // Create a Data Cell for our Total Element.
+  tdTotalElem.textContent = totalCookiesPerHour; // Assigns the Data Cell to the 'totalCookiesPerHour' variable.
+  trElem.appendChild(tdTotalElem); // Attaches the Data Cell totals ('td') to the Table Row ('trElem').
 
-  tableBody.appendChild(trElem);
+  tableBody.appendChild(trElem); // Attaches the entire Table Row ('trElem') with all this data now...to the Table Body ('tableBody
 }
 
-// **** CREATE INSTANCES OF CITIES ***
+// **** CREATE INSTANCES OF CITIES via Array ***
 
 let cities = [];
 
@@ -160,15 +174,10 @@ cities.push(lima);
 // **** CALLING THE METHOD ****
 
 seattle.render();
-// seattle.renderHeader();
 tokyo.render();
-// tokyo.renderHeader();
 dubai.render();
-// dubai.renderHeader();
 paris.render();
-// paris.renderHeader();
 lima.render();
-// lima.renderHeader();
 renderHeader();
 renderFooter();
 
