@@ -6,14 +6,7 @@
 
 
 // TODO: MAKE LISTEN ELEMENT:
-
 let cityForm = document.getElementById('city-form');
-const state = {
-  allCities: [],
-
-};
-
-
 
 
 // 1. Create a <table id='sale-table'></table> in the HTML Section/Article/Body etc for the JS created table to be linked to so it knows where to go. `sale-table`.
@@ -115,7 +108,6 @@ function renderHeader() {
 
 // ? *** Generate Table Footer Function ***
 function renderFooter() {
-  // let foot = document.createElement('tfoot');
   let trElem = document.createElement('tr'); // Create a new row for the Data our function makes.
   let thTotalElem = document.createElement('th'); // Create the Data Cell in the Table Header for the ROW.
   thTotalElem.textContent = 'Totals'; // Assign what we want to literally call that Data Cell which represents the ROW.
@@ -137,7 +129,7 @@ function renderFooter() {
   let tdTotalElem = document.createElement('td'); // Create a Data Cell for our Total Element.
   tdTotalElem.textContent = totalCookiesPerHour; // Assigns the Data Cell to the 'totalCookiesPerHour' variable.
   trElem.appendChild(tdTotalElem); // Attaches the Data Cell totals ('td') to the Table Row ('trElem').
-  // foot.appendChild(trElem); // Appends the Table Row ('trElem') with all this data now
+
   tableBody.appendChild(trElem); // Attaches the entire Table Row ('trElem') with all this data now...to the Table Body ('tableBody
 }
 
@@ -146,58 +138,50 @@ function renderFooter() {
 let cities = [];
 
 let seattle = new Cities('Seattle', 23, 65, 6.3);
-// cities.push(seattle);
+cities.push(seattle);
 
 let tokyo = new Cities('Tokyo', 3, 24, 1.2);
-// cities.push(tokyo);
+cities.push(tokyo);
 
 let dubai = new Cities('Dubai', 11, 38, 3.7);
-// cities.push(dubai);
+cities.push(dubai);
 
 let paris = new Cities('Paris', 20, 38, 2.3);
-// cities.push(paris);
+cities.push(paris);
 
 let lima = new Cities('Lima', 2, 16, 4.6);
-// cities.push(lima);
+cities.push(lima);
 
-state.allCities.push(seattle, tokyo, dubai, paris, lima);
 
 // TODO: HANDLE THE FORM:
-
-function handleFormSubmit(event) {
+function handleSubmit(event) {
   event.preventDefault();
 
-  let name = event.target.name.value;
-  let minCust = event.target.minCust.value;
-  let maxCust = event.target.maxCust.value;
+  let name = event.target.cityName.value;
+  let minCust = +event.target.minCust.value;
+  let maxCust = +event.target.maxCust.value;
   let avgCookies = event.target.avgCookies.value;
+
+  // TODO: CREATE A TABLE ROW FOR THE City, minCust, maxCust, AvgCookies:
   let newCity = new Cities(name, minCust, maxCust, avgCookies);
-  state.allCities.push(newCity);
+  cities.push(newCity);
 
-  
-
-  // newCity.render();
-  // tableBody.deleteRow(tableBody.rows.length - 1);
-  // document.getElementById('sale-table').deleteRow(0);
-  renderFooter();
+  // TODO: REMOVE THE FOOTER:
+  let tableBody = document.querySelector('#sale-table tbody');
+  let lastRow = tableBody.lastElementChild;
+  if (lastRow) {
+    lastRow.remove();
+  }
 
   // TODO: CALL THE FUNCTIONS:
+  newCity.render();
+  renderFooter();
+
+
 }
 
-
-
-// TODO: CREATE A TABLE ROW FOR THE City, minCust, maxCust, AvgCookies:
-
-
-// TODO: REMOVE THE FOOTER:
-
-
-
-
-
 // TODO: ADD LISTENER:
-
-cityForm.addEventListener('submit', handleFormSubmit);
+cityForm.addEventListener('submit', handleSubmit);
 
 
 
