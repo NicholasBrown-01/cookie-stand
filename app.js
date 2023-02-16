@@ -1,28 +1,20 @@
 'use strict';
 // * ----- THANK YOU INSTRUCTORS, TA'S, AND YOUTUBE, AND MDN DOCS, AND W3 SCHOOLS, AND THE INTERNET FOR YOUR CONTRIBUTIONS ----- *
 
-// Visualize the HTML Table:
-
-// <table>
-//   <tr>
-//     <th>Heading 1</th> // ? Hours
-//     <th>Heading 2</th>
-//     <th>Heading 3</th>
-//     <th>Daily Location Total</th> // ? Total of each City for all hours
-//   </tr>
-//   <tr>?
-//     <td>Cell 1, Row 1</td> // ? Cities
-//     <td>Cell 2, Row 1</td>
-//     <td>Cell 3, Row 1</td>
-//   </tr>
-//   <tr>
-//     <th>Total</th> // ? Total of all Cities per hour
-//     <td></td>
-//     <td></td>
-//   </tr>
-// </table>
 
 // **** GLOBALS ****
+
+
+// TODO: MAKE LISTEN ELEMENT:
+
+let cityForm = document.getElementById('city-form');
+const state = {
+  allCities: [],
+
+};
+
+
+
 
 // 1. Create a <table id='sale-table'></table> in the HTML Section/Article/Body etc for the JS created table to be linked to so it knows where to go. `sale-table`.
 let saleTable = document.getElementById('sale-table');
@@ -123,6 +115,7 @@ function renderHeader() {
 
 // ? *** Generate Table Footer Function ***
 function renderFooter() {
+  // let foot = document.createElement('tfoot');
   let trElem = document.createElement('tr'); // Create a new row for the Data our function makes.
   let thTotalElem = document.createElement('th'); // Create the Data Cell in the Table Header for the ROW.
   thTotalElem.textContent = 'Totals'; // Assign what we want to literally call that Data Cell which represents the ROW.
@@ -144,7 +137,7 @@ function renderFooter() {
   let tdTotalElem = document.createElement('td'); // Create a Data Cell for our Total Element.
   tdTotalElem.textContent = totalCookiesPerHour; // Assigns the Data Cell to the 'totalCookiesPerHour' variable.
   trElem.appendChild(tdTotalElem); // Attaches the Data Cell totals ('td') to the Table Row ('trElem').
-
+  // foot.appendChild(trElem); // Appends the Table Row ('trElem') with all this data now
   tableBody.appendChild(trElem); // Attaches the entire Table Row ('trElem') with all this data now...to the Table Body ('tableBody
 }
 
@@ -153,21 +146,58 @@ function renderFooter() {
 let cities = [];
 
 let seattle = new Cities('Seattle', 23, 65, 6.3);
-cities.push(seattle);
+// cities.push(seattle);
 
 let tokyo = new Cities('Tokyo', 3, 24, 1.2);
-cities.push(tokyo);
+// cities.push(tokyo);
 
 let dubai = new Cities('Dubai', 11, 38, 3.7);
-cities.push(dubai);
+// cities.push(dubai);
 
 let paris = new Cities('Paris', 20, 38, 2.3);
-cities.push(paris);
+// cities.push(paris);
 
 let lima = new Cities('Lima', 2, 16, 4.6);
-cities.push(lima);
+// cities.push(lima);
+
+state.allCities.push(seattle, tokyo, dubai, paris, lima);
+
+// TODO: HANDLE THE FORM:
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  let name = event.target.name.value;
+  let minCust = event.target.minCust.value;
+  let maxCust = event.target.maxCust.value;
+  let avgCookies = event.target.avgCookies.value;
+  let newCity = new Cities(name, minCust, maxCust, avgCookies);
+  state.allCities.push(newCity);
+
+  
+
+  // newCity.render();
+  // tableBody.deleteRow(tableBody.rows.length - 1);
+  // document.getElementById('sale-table').deleteRow(0);
+  renderFooter();
+
+  // TODO: CALL THE FUNCTIONS:
+}
 
 
+
+// TODO: CREATE A TABLE ROW FOR THE City, minCust, maxCust, AvgCookies:
+
+
+// TODO: REMOVE THE FOOTER:
+
+
+
+
+
+// TODO: ADD LISTENER:
+
+cityForm.addEventListener('submit', handleFormSubmit);
 
 
 
