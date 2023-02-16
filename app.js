@@ -77,7 +77,7 @@ Cities.prototype.generateCookieSales = function() {
 Cities.prototype.render = function() {
   this.generateCookieSales(); // Invoking this function here so it's called only once per advice from a TA.
 
-  let trElem = document.createElement('tr'); // Create the initial row from which to build from an attach our header date to. Would love to name this Row 1 but becuase this is used over and over it wouldn't make sense.
+  let trElem = document.createElement('tr'); // Create the initial row from which to build from an attach our header data to. Would love to name this Row 1 but becuase this is used over and over it wouldn't make sense.
 
   let thElem = document.createElement('th'); // Create a new Table Header which is also a 'Header Cell' and assignes it to the variable thElem
   thElem.textContent = this.name; // Assigns the name of the a city to Table Header Cell.
