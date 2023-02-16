@@ -1,0 +1,265 @@
+
+
+/* * {
+align-items: center;
+}  */
+
+
+header {
+  background-image: url(headerbackground.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-style: double;
+  border-color: black;
+  border-width: 5px;
+  margin: 2px;
+  padding: 3px;
+  text-align: center;
+}
+
+header h2 {
+  background-color: rgba(255, 255, 255, .001);
+  margin: 15px;
+}
+
+
+nav{
+  margin: 10px;
+  padding: 3px;
+}
+
+button {
+  background-color: rgb(0, 0, 0);
+  transition: .5s;
+  border-radius: 5px;
+  border-color: white;
+  color: white;
+  padding: 5px;
+}
+
+button:hover {
+  background-color: rgb(39, 213, 123);
+  color: white;
+}
+
+
+.HiddenImage1 img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  left: 1;
+}
+
+.HiddenImage2 img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 150px;
+  left: 400px;
+}
+
+.HiddenImage3 img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 1;
+  left: 0;
+}
+
+.HiddenImage4 img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 1;
+  left: 10;
+
+}
+
+.HiddenImage5 img {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 100;
+  left: 0;
+}
+
+
+h1 {
+
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 55px;  
+}
+
+
+h2 {
+
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 35px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 14px;  
+}
+
+
+h5 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 2px; 
+}
+
+h6 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.CitySections {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.EachCity {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+    
+}
+
+
+.EachCity > div {
+  width: 25%;
+  height: 25%;
+  margin: 20px;
+  border-style: solid;
+  border-width: 10px;
+  border-color: white;
+  text-align: center;
+}
+
+.EachCity > div:hover {
+  transform: scale(1.06);
+  transition: .7s;
+
+}
+
+.EachCity > div > img {
+  width: 100%;
+  /* height: 100%; */
+  max-width: 100%;
+  height: fit-content;
+  border-color: white;
+  }
+
+.EachCity > div > p {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  /* padding-top: 19px; */
+}
+
+
+body {
+
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 500;
+  background-image: url(Ingredients2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main img {
+  margin: 0 auto;
+  width: 25%;
+  height: 25%;
+  border-style: solid;
+  border-width: 10px;
+  border-color: white;
+  display: block;
+  align-content: center;
+  
+}
+
+ul {
+
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+  padding: 5px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  list-style: disc;
+  list-style-position: inside;
+    
+}
+
+footer {
+  background-color: rgb(51, 51, 51, .9);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 3px;
+  text-align: left;
+  color: rgb(249, 235, 235);
+}
+
+#sale-table {
+  
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+  padding: 100px;
+  font-weight: bold;
+  text-align: center;
+     
+}
+
+td {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  margin: 5px;
+  padding: 10px;
+  
+}
+
+th {
+  border-style: none;
+  border-color: none;
+  border-width: none;
+  margin: 5px;
+  padding: 15px;
+ 
+}
+
+tr {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  margin: 5px;
+  padding: 10px;
+ 
+}
+
+
