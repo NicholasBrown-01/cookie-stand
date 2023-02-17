@@ -1,28 +1,13 @@
 'use strict';
 // * ----- THANK YOU INSTRUCTORS, TA'S, AND YOUTUBE, AND MDN DOCS, AND W3 SCHOOLS, AND THE INTERNET FOR YOUR CONTRIBUTIONS ----- *
 
-// Visualize the HTML Table:
-
-// <table>
-//   <tr>
-//     <th>Heading 1</th> // ? Hours
-//     <th>Heading 2</th>
-//     <th>Heading 3</th>
-//     <th>Daily Location Total</th> // ? Total of each City for all hours
-//   </tr>
-//   <tr>?
-//     <td>Cell 1, Row 1</td> // ? Cities
-//     <td>Cell 2, Row 1</td>
-//     <td>Cell 3, Row 1</td>
-//   </tr>
-//   <tr>
-//     <th>Total</th> // ? Total of all Cities per hour
-//     <td></td>
-//     <td></td>
-//   </tr>
-// </table>
 
 // **** GLOBALS ****
+
+
+// TODO: MAKE LISTEN ELEMENT:
+let cityForm = document.getElementById('city-form');
+
 
 // 1. Create a <table id='sale-table'></table> in the HTML Section/Article/Body etc for the JS created table to be linked to so it knows where to go. `sale-table`.
 let saleTable = document.getElementById('sale-table');
@@ -168,6 +153,35 @@ let lima = new Cities('Lima', 2, 16, 4.6);
 cities.push(lima);
 
 
+// TODO: HANDLE THE FORM:
+function handleSubmit(event) {
+  event.preventDefault();
+
+  let name = event.target.cityName.value;
+  let minCust = +event.target.minCust.value;
+  let maxCust = +event.target.maxCust.value;
+  let avgCookies = event.target.avgCookies.value;
+
+  // TODO: CREATE A TABLE ROW FOR THE City, minCust, maxCust, AvgCookies:
+  let newCity = new Cities(name, minCust, maxCust, avgCookies);
+  cities.push(newCity);
+
+  // TODO: REMOVE THE FOOTER:
+  let tableBody = document.querySelector('#sale-table tbody');
+  let lastRow = tableBody.lastElementChild;
+  if (lastRow) {
+    lastRow.remove();
+  }
+
+  // TODO: CALL THE FUNCTIONS:
+  newCity.render();
+  renderFooter();
+
+
+}
+
+// TODO: ADD LISTENER:
+cityForm.addEventListener('submit', handleSubmit);
 
 
 

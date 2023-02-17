@@ -1,12 +1,15 @@
 
 
+
+
+
 /* * {
 align-items: center;
 }  */
 
 
 header {
-  background-image: url(headerbackground.jpg);
+  background-image: url(img/headerbackground.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   border-style: double;
@@ -182,7 +185,7 @@ body {
 
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 500;
-  background-image: url(Ingredients2.jpg);
+  background-image: url(img/Ingredients2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
